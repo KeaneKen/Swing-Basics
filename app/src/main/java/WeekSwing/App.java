@@ -4,8 +4,14 @@
 package WeekSwing;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
 public class App extends JFrame {
@@ -21,16 +27,37 @@ public class App extends JFrame {
         splitPane.setLeftComponent(new SideBar());
         splitPane.setRightComponent(new Griddy());
 
-
         add(splitPane);
-        add(new MenuItem("Welcome"), BorderLayout.NORTH);
+
+        // Create a panel for the top layout
+        JPanel topPanel = new JPanel();
+        topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.X_AXIS)); // Horizontal layout
+        topPanel.setBackground(Color.GRAY);
+        topPanel.add(Box.createHorizontalStrut(10)); // Add spacing
+
+        topPanel.add(new MenuItem("Characters"));
+        topPanel.add(Box.createHorizontalStrut(10)); // Add spacing
+
+        JButton discord = new JButton("Discord");
+        discord.setForeground(Color.WHITE);
+        discord.setPreferredSize(new Dimension(100, 40));
+        discord.setBackground(Color.DARK_GRAY);
+        topPanel.add(discord);
+
+        JButton kofi = new JButton("Buy Us a KO-FI!");
+        kofi.setForeground(Color.WHITE);
+        kofi.setBackground(Color.DARK_GRAY);
+        kofi.setPreferredSize(new Dimension(130, 40));
+        topPanel.add(Box.createHorizontalStrut(10)); // Add spacing
+        topPanel.add(kofi);
+
+        add(topPanel, BorderLayout.NORTH);
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
-
     }
 
     public static void main(String[] args) {
         new App();
     }
-
 }

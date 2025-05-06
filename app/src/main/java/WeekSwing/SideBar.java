@@ -23,6 +23,16 @@ public class SideBar extends JPanel {
 
         add(Box.createVerticalStrut(10)); // 10 pixels of vertical space
 
+        //Personas
+        add (new MenuItem("Personas"));
+
+        add(Box.createVerticalStrut(10)); // 10 pixels of vertical space
+
+        //Palaces
+        add (new MenuItem("Palaces"));
+
+        add(Box.createVerticalStrut(10)); // 10 pixels of vertical space
+
         //Tierlist
         add (new MenuItem("Tier List"));
 
