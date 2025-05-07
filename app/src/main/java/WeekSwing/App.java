@@ -9,9 +9,10 @@ import java.awt.Dimension;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 
 public class App extends JFrame {
@@ -21,11 +22,17 @@ public class App extends JFrame {
         setSize(920, 280);
         setResizable(true);
 
-        JSplitPane splitPane = new JSplitPane();
-        splitPane.setDividerLocation(240);
-        splitPane.setDividerSize(4);
-        splitPane.setLeftComponent(new SideBar());
-        splitPane.setRightComponent(new Griddy());
+JScrollPane scrollPane = new JScrollPane(new Griddy());
+scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+scrollPane.getVerticalScrollBar().setUnitIncrement(17);
+
+JSplitPane splitPane = new JSplitPane();
+splitPane.setDividerLocation(240);
+splitPane.setDividerSize(4);
+splitPane.setLeftComponent(new SideBar());
+splitPane.setRightComponent(scrollPane);
+
+        
 
         add(splitPane);
 
@@ -35,19 +42,17 @@ public class App extends JFrame {
         topPanel.setBackground(Color.GRAY);
         topPanel.add(Box.createHorizontalStrut(10)); // Add spacing
 
-        topPanel.add(new MenuItem("Characters"));
-        topPanel.add(Box.createHorizontalStrut(10)); // Add spacing
+        JLabel characters = new JLabel("Characters");
+        characters.setForeground(Color.WHITE);
+        characters.setPreferredSize(new Dimension(1900, 40));
+        characters.setBackground(Color.GRAY);
+        topPanel.add(characters);
 
-        JButton discord = new JButton("Discord");
-        discord.setForeground(Color.WHITE);
-        discord.setPreferredSize(new Dimension(100, 40));
-        discord.setBackground(Color.DARK_GRAY);
+
+        Discord discord = new Discord("Discord");
         topPanel.add(discord);
 
-        JButton kofi = new JButton("Buy Us a KO-FI!");
-        kofi.setForeground(Color.WHITE);
-        kofi.setBackground(Color.DARK_GRAY);
-        kofi.setPreferredSize(new Dimension(130, 40));
+        Kofi kofi = new Kofi("Buy me a Ko-Fi!");
         topPanel.add(Box.createHorizontalStrut(10)); // Add spacing
         topPanel.add(kofi);
 

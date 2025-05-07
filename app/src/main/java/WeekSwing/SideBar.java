@@ -36,6 +36,23 @@ public class SideBar extends JPanel {
         //Tierlist
         add (new MenuItem("Tier List"));
 
+        add(Box.createVerticalStrut(10)); // 10 pixels of vertical space
+
+        //Achievements
+        add (new MenuItem("Achievments"));
+
+        add(Box.createVerticalStrut(10)); // 10 pixels of vertical space
+
+        //Best Teams
+        add (new MenuItem("Best Teams"));
+
+        add(Box.createVerticalStrut(10)); // 10 pixels of vertical space
+
+        //Social Links
+        add (new MenuItem("Social Links"));
+
+        add(Box.createVerticalStrut(10)); // 10 pixels of vertical space
+
     
         
 }

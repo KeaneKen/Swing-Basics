@@ -10,7 +10,7 @@ public class Griddy extends JPanel {
         setBackground(java.awt.Color.BLACK);
 
         //  character data
-        String[] characterNames = {"Joker", "Morgana", "Ryuji", "Ann", "Yusuke", "Makoto", "Futaba", "Haru", "Akechi", "Kasumi","Zenkichi","Sophia"};
+        String[] characterNames = {"Joker", "Morgana", "Ryuji", "Ann", "Yusuke", "Makoto", "Futaba", "Haru", "Akechi", "Kasumi","Zenkichi","Sophia","Kotone","Kotone but manga","Kotone but real"};
         String[] imagePaths = {
             "Joker.jpg", // Replace with actual image paths
             "Morgana.jpg",
@@ -23,7 +23,10 @@ public class Griddy extends JPanel {
             "Akechi.jpg",
             "Kasumi.jpg",
             "Zenkichi.jpg",
-            "Sohpia.jpg"
+            "Sohpia.jpg",
+            "Kotone.jpg",
+            "Kotone_manga.jpg",
+            "Kotone_live.jpg"
         };
 
         // Add cards to the grid

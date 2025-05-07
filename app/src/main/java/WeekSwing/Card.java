@@ -9,12 +9,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+
 public class Card extends JPanel {
     public Card(String characterName, String imagePath) {
         setBackground(Color.WHITE);
         setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         setLayout(new BorderLayout());
-        setPreferredSize(new Dimension(200, 200));
+        setPreferredSize(new Dimension(150, 200));
 
         // Add character image
         JLabel imageLabel = new JLabel();
