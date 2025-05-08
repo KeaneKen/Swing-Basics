@@ -32,5 +32,6 @@ public class Card extends JPanel {
         nameLabel.setBackground(Color.WHITE);
         nameLabel.setOpaque(true);
         add(nameLabel, BorderLayout.SOUTH);
+
     }
 }

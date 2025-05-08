@@ -19,7 +19,7 @@ public class App extends JFrame {
     public App() {
         setLayout(new BorderLayout());
         setTitle("Week Swing");
-        setSize(920, 280);
+        setSize(920, 768);
         setResizable(true);
 
 JScrollPane scrollPane = new JScrollPane(new Griddy());

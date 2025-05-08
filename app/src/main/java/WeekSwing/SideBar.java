@@ -1,59 +1,64 @@
 package WeekSwing;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 public class SideBar extends JPanel {
-
+    
     public SideBar() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setBackground(Color.DARK_GRAY);
 
         add(Box.createVerticalStrut(10));
-        //Home
-        add (new MenuItem("Home"));
 
-        add(Box.createVerticalStrut(10)); // 10 pixels of vertical space
+        // Add buttons with ActionListeners
+        addMenuItem("Home");
+        addMenuItem("Characters");
+        addMenuItem("Personas");
+        addMenuItem("Palaces");
+        addMenuItem("Tier List");
+        addMenuItem("Achievements");
+        addMenuItem("Best Teams");
+        addMenuItem("Social Links");
+    }
 
-        //Character
-        add (new MenuItem("Characters"));
+    private void addMenuItem(String text) {
+        MenuItem menuItem = new MenuItem(text);
 
-        add(Box.createVerticalStrut(10)); // 10 pixels of vertical space
+        // Add a MouseListener to handle hover effects
+        menuItem.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                // Change appearance when hovered
+                menuItem.setBackground(Color.LIGHT_GRAY);
+                menuItem.setForeground(Color.BLACK);
+            }
 
-        //Personas
-        add (new MenuItem("Personas"));
+            @Override
+            public void mouseExited(MouseEvent e) {
+                // Revert appearance when hover ends
+                menuItem.setBackground(Color.GRAY);
+                menuItem.setForeground(Color.WHITE);
+            }
+        });
 
-        add(Box.createVerticalStrut(10)); // 10 pixels of vertical space
+        // Add an ActionListener for button clicks
+        menuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Handle button click
+                System.out.println("Button clicked: " + text);
+            }
+        });
 
-        //Palaces
-        add (new MenuItem("Palaces"));
-
-        add(Box.createVerticalStrut(10)); // 10 pixels of vertical space
-
-        //Tierlist
-        add (new MenuItem("Tier List"));
-
-        add(Box.createVerticalStrut(10)); // 10 pixels of vertical space
-
-        //Achievements
-        add (new MenuItem("Achievments"));
-
-        add(Box.createVerticalStrut(10)); // 10 pixels of vertical space
-
-        //Best Teams
-        add (new MenuItem("Best Teams"));
-
-        add(Box.createVerticalStrut(10)); // 10 pixels of vertical space
-
-        //Social Links
-        add (new MenuItem("Social Links"));
-
-        add(Box.createVerticalStrut(10)); // 10 pixels of vertical space
-
-    
-        
-}
+        add(menuItem);
+        add(Box.createVerticalStrut(10)); // Add spacing
+    }
 }
