@@ -19,8 +19,9 @@ public class App extends JFrame {
     public App() {
         setLayout(new BorderLayout());
         setTitle("Week Swing");
-        setSize(1920, 1080);
+        setSize(1536, 864);
         setResizable(true);
+        setUndecorated(true);
 
 
 JScrollPane scrollPane = new JScrollPane(new Griddy());
@@ -56,6 +57,15 @@ splitPane.setRightComponent(scrollPane);
         Kofi kofi = new Kofi("Buy me a Ko-Fi!");
         topPanel.add(Box.createHorizontalStrut(10)); // Add spacing
         topPanel.add(kofi);
+
+        FullscreenButton fullscreenButton = new FullscreenButton("□", this);
+        topPanel.add(Box.createHorizontalStrut(10)); // Add spacing
+        topPanel.add(fullscreenButton);
+
+        CloseButton closeButton = new CloseButton("X");
+        topPanel.add(Box.createHorizontalStrut(10)); // Add spacing
+        topPanel.add(closeButton);
+
 
         add(topPanel, BorderLayout.NORTH);
 
