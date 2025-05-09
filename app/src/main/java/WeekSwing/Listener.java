@@ -29,6 +29,21 @@ public class Listener implements java.awt.event.ActionListener {
                 case "Personas":
                     newPanel = new Persona();
                     break;
+                case "Home":
+                    newPanel = new Persona();
+                    break;
+                case "Tier List":
+                    newPanel = new Griddy();
+                    break;
+                case "Achievements":
+                    newPanel = new Persona();
+                    break;
+                case "Best Teams":
+                    newPanel = new Griddy();
+                    break;
+                case "Social Links":
+                    newPanel = new Persona();
+                    break;
                 default:
                     return; // Unknown button, do nothing
             }
