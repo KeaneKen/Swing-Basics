@@ -11,6 +11,7 @@ public class Kofi extends JButton {
         setForeground(Color.WHITE);
         setPreferredSize(new Dimension(140, 40));
         setBackground(Color.decode("#fc4c60"));
+        addActionListener(new ListenerButton("https://en.wikipedia.org/wiki/Skibidi_Toilet"));
         
     }
 }

@@ -11,6 +11,7 @@ public class Discord extends JButton {
         setForeground(Color.WHITE);
         setPreferredSize(new Dimension(100, 40));
         setBackground(Color.decode("#7289da"));
+        addActionListener(new ListenerButton("https://www.youtube.com/watch?v=FUaaGInT_R8"));
         
     }
 }

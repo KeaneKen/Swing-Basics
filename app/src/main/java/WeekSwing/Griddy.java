@@ -45,21 +45,10 @@ public class Griddy extends JPanel {
                     // Show a dialog or perform an action when the card is clicked
                     JOptionPane.showMessageDialog(Griddy.this, "You clicked on: " + characterNames[index]);
                 }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
-                    // Change appearance when hovered
-                    card.setForeground(Color.WHITE);
-                    card.setBorder(javax.swing.BorderFactory.createLineBorder(Color.RED, 2));
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-                    // Revert appearance when hover ends
-                    card.setForeground(Color.LIGHT_GRAY);
-                    card.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-                }
             });
+
+                    // Create proper Border objects (LineBorder)
+card.addMouseListener(new Hover(Color.RED, Color.GRAY, 3)); // 3px thick
 
             add(card);
         }

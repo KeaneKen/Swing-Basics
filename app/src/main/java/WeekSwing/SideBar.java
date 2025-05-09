@@ -3,51 +3,36 @@ package WeekSwing;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
+import javax.swing.JSplitPane;
 
 public class SideBar extends JPanel {
     
-    public SideBar() {
+    public SideBar(JSplitPane splitPane) {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setBackground(Color.DARK_GRAY);
 
         add(Box.createVerticalStrut(10));
 
         // Add buttons with ActionListeners
-        addMenuItem("Home");
-        addMenuItem("Characters");
-        addMenuItem("Personas");
-        addMenuItem("Palaces");
-        addMenuItem("Tier List");
-        addMenuItem("Achievements");
-        addMenuItem("Best Teams");
-        addMenuItem("Social Links");
+        addMenuItem("Home", splitPane);
+        addMenuItem("Characters", splitPane);
+        addMenuItem("Personas", splitPane);
+        addMenuItem("Palaces", splitPane);
+        addMenuItem("Tier List", splitPane);
+        addMenuItem("Achievements", splitPane);
+        addMenuItem("Best Teams", splitPane);
+        addMenuItem("Social Links", splitPane);
     }
 
-    private void addMenuItem(String text) {
+    private void addMenuItem(String text, JSplitPane splitPane) {
         MenuItem menuItem = new MenuItem(text);
+        menuItem.addActionListener(new Listener(splitPane)); // Add ActionListener to the button
 
-        // Add a MouseListener to handle hover effects
-        menuItem.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                // Change appearance when hovered
-                menuItem.setBackground(Color.LIGHT_GRAY);
-                menuItem.setForeground(Color.BLACK);
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                // Revert appearance when hover ends
-                menuItem.setBackground(Color.GRAY);
-                menuItem.setForeground(Color.WHITE);
-            }
-        });
+    menuItem.addMouseListener(new Hover(Color.RED, Color.GRAY, 3)); // 3px thick
 
         // Add an ActionListener for button clicks
         menuItem.addActionListener(new ActionListener() {

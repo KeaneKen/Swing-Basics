@@ -19,8 +19,9 @@ public class App extends JFrame {
     public App() {
         setLayout(new BorderLayout());
         setTitle("Week Swing");
-        setSize(920, 768);
+        setSize(1920, 1080);
         setResizable(true);
+
 
 JScrollPane scrollPane = new JScrollPane(new Griddy());
 scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -29,7 +30,7 @@ scrollPane.getVerticalScrollBar().setUnitIncrement(17);
 JSplitPane splitPane = new JSplitPane();
 splitPane.setDividerLocation(240);
 splitPane.setDividerSize(4);
-splitPane.setLeftComponent(new SideBar());
+splitPane.setLeftComponent(new SideBar(splitPane));
 splitPane.setRightComponent(scrollPane);
 
         
@@ -42,7 +43,7 @@ splitPane.setRightComponent(scrollPane);
         topPanel.setBackground(Color.GRAY);
         topPanel.add(Box.createHorizontalStrut(10)); // Add spacing
 
-        JLabel characters = new JLabel("Characters");
+        JLabel characters = new JLabel("Persona 5 Characters List");
         characters.setForeground(Color.WHITE);
         characters.setPreferredSize(new Dimension(1900, 40));
         characters.setBackground(Color.GRAY);
